@@ -11,6 +11,7 @@
   "author": "XWang1024 <xwang1024@126.com>",
   "license": "MIT",
   "dependencies": {
+    "history": "^4.6.0",
     "immutable": "^4.0.0-rc.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",

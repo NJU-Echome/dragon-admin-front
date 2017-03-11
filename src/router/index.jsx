@@ -1,23 +1,24 @@
 'use strict';
 
 import React from 'react';
-import { Route, IndexRoute } from 'react-router';
+import { Router, Route, Redirect, IndexRoute } from 'react-router';
+import { createHashHistory } from 'history';
 
 import App from '../container/App';
 
-const history = process.env.NODE_ENV !== 'production' ? browserHistory : hashHistory;
-
-const ensureComponent = function(componentName) {
+const Dashboard = function() {
   return function(location, callback) {
     require.ensure([], (require) => {
-      callback(null, require(`../container/${componentName}`).default)
-    }, componentName);
+      callback(null, require('../container/Dashboard').default)
+    }, 'Dashboard');
   }
 }
 
-export const routes = (
-  <Route path='/' component={App}>
-    <IndexRoute getComponent={dashboard} />
-    <Route path='dashboard' getComponent={genComponent(dashboard)} />
-  </Route>
+export default (
+  <Router history={createHashHistory()}>
+    <Route path='/' component={App}>
+      {/*<IndexRoute handler={Dashboard} />*/}
+      {/*<Route path='dashboard' handler={Dashboard} />*/}
+    </Route>
+  </Router>
 );
