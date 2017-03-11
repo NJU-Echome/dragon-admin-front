@@ -26,7 +26,7 @@ module.exports = {
       include: path.join(__dirname, 'src/'),
       use: [
         {
-          loader: 'babel-loader?sourceMap',
+          loader: 'babel-loader',
           options: {
             presets: ["es2015", "stage-0", "react"],
             plugins: [
