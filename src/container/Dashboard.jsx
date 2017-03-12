@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Test from '../component/Test';
 
 class DashboardContainer extends Component {
   constructor (props) {
@@ -20,9 +19,7 @@ class DashboardContainer extends Component {
 
   render() {
     return (
-      <div className="cp-app">
-        <Test />
-      </div>
+      <span>Dashboard</span>
     );
   }
 }

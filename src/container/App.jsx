@@ -3,6 +3,17 @@ import { connect } from 'react-redux';
 import HeaderContainer from './Header';
 import SidebarContainer from './Sidebar';
 import FooterContainer from './Footer';
+import { Router, Route, Redirect, IndexRoute } from 'react-router';
+import { createHashHistory } from 'history';
+import routes from '../route/index';
+
+const Dashboard = function() {
+  return function(location, callback) {
+    require.ensure([], (require) => {
+      callback(null, require('../container/Dashboard').default)
+    }, 'Dashboard');
+  }
+}
 
 class AppContainer extends Component {
   constructor (props) {
@@ -22,14 +33,14 @@ class AppContainer extends Component {
 
   render() {
     return (
-      <div className="cp-app">
-        <HeaderContainer />
-        <SidebarContainer />
-        <div className="cp-container">
-            {this.props.children}
+      <Router history={createHashHistory()}>
+        <div>
+          <HeaderContainer />
+          <SidebarContainer />
+          {routes}
+          <FooterContainer />
         </div>
-        <FooterContainer />
-      </div>
+      </Router>
     );
   }
 }

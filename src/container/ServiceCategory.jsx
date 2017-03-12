@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class HeaderContainer extends Component {
+class ServiceCategoryContainer extends Component {
   constructor (props) {
     super(props);
   }
@@ -19,9 +19,7 @@ class HeaderContainer extends Component {
 
   render() {
     return (
-      <header>
-        
-      </header>
+      <span>ServiceCategory</span>
     );
   }
 }
@@ -32,4 +30,4 @@ function mapStateToProps(state) {
 }
 
 // 包装 component ，注入 dispatch 和 state 到其默认的 connect(select)(App) 中；
-export default connect(mapStateToProps)(HeaderContainer);
+export default connect(mapStateToProps)(ServiceCategoryContainer);
